@@ -1,29 +1,29 @@
 <?php
 
-namespace App\Http\Controllers\API\User;
+namespace App\Http\Controllers\API\Product;
 
 use App\Exceptions\ValidationException;
 use App\Http\Controllers\API\BaseController;
-use App\Usecases\User\UserRegisterUsecase;
+use App\Usecases\Product\CreateProductUsecase;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class RegisterController extends BaseController
+class CreateProductController extends BaseController
 {
     /**
-     * Register api
+     * Create product api
      *
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request, UserRegisterUsecase $usecase)
+    public function create(Request $request, CreateProductUsecase $usecase)
     {
 
         try {
 
             $input = $request->all();
-            $dto = $usecase->execute($input);
+            $dtos = $usecase->execute($input);
 
-            return $this->sendResponse($dto, 'User registered successfully.', JsonResponse::HTTP_CREATED);
+            return $this->sendResponse($dtos, '', JsonResponse::HTTP_CREATED);
 
         } catch (\Throwable $ex) {
 

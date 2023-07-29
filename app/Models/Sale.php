@@ -28,8 +28,17 @@ class Sale extends Model
     // N .. N
     public function products(): BelongsToMany
     {
-        return $this->belongsToMany(Product::class, 'product_sale', 'sale', 'product');
+        return $this->belongsToMany(Product::class, 'product_sale', 'sale', 'product')->withPivot('quantity');
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'client_id',
+    ];
 
     public $timestamps = false;
 

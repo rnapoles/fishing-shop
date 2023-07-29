@@ -1,29 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\API\User;
+namespace App\Http\Controllers\API\Sale;
 
 use App\Exceptions\ValidationException;
 use App\Http\Controllers\API\BaseController;
-use App\Usecases\User\UserRegisterUsecase;
+use App\Usecases\Sale\CreateSaleUsecase;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 
-class RegisterController extends BaseController
+class CreateSaleController extends BaseController
 {
     /**
-     * Register api
+     * Create sale api
      *
      * @return \Illuminate\Http\Response
      */
-    public function register(Request $request, UserRegisterUsecase $usecase)
+    public function create(Request $request, CreateSaleUsecase $usecase)
     {
+
+        $input = $request->all();
 
         try {
 
-            $input = $request->all();
-            $dto = $usecase->execute($input);
+            $input['client_id'] = Auth::id();
 
-            return $this->sendResponse($dto, 'User registered successfully.', JsonResponse::HTTP_CREATED);
+            $dtos = $usecase->execute($input);
+
+            return $this->sendResponse($dtos, '', JsonResponse::HTTP_CREATED);
 
         } catch (\Throwable $ex) {
 

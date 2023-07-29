@@ -11,14 +11,14 @@ class BaseController extends Controller
     /**
      * success response method.
      */
-    public function sendResponse(mixed $payload, string $message = ''): JsonResponse
+    public function sendResponse(mixed $payload, string $message = '', int $code = JsonResponse::HTTP_OK): JsonResponse
     {
 
         $responseObj = new ResponseObject();
         $responseObj->message = $message;
         $responseObj->payload = $payload;
 
-        return response()->json($responseObj, JsonResponse::HTTP_OK);
+        return response()->json($responseObj, $code);
     }
 
     /**
