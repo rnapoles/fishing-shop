@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "eff857eb-30ad-4b20-8bc2-70e9549c6dd4",
+		"name": "MaryShop",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/api/login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"admin@localhost.loc\",\n  \"password\": \"p@55w0rd/*\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"email\": \"test-user@localhost.loc\",\n  \"password\": \"p@55w0rd/*\"\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/register",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"register"
+					]
+				},
+				"description": "Allow user register"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/product/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Fishing rod\",\n    \"purchase_price\": 10,\n    \"sale_price\": 20,\n    \"units_in_stock\": 5\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/product/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"create"
+					]
+				},
+				"description": "Create a new product"
+			},
+			"response": []
+		},
+		{
+			"name": "/api/product/list",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/product/list",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"product",
+						"list"
+					]
+				},
+				"description": "List all product with stock "
+			},
+			"response": []
+		},
+		{
+			"name": "/api/sale/create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\": [\n        {\n            \"id\": 1,\n            \"quantity\": 1\n        },\n        {\n            \"id\": 2,\n            \"quantity\": 1\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "{{base_url}}/api/sale/create",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sale",
+						"create"
+					]
+				},
+				"description": "Allow user buy products "
+			},
+			"response": []
+		},
+		{
+			"name": "/api/sale/report",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{base_url}}/api/sale/report",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"api",
+						"sale",
+						"report"
+					]
+				},
+				"description": "Get Sales report"
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "1b897d69-7a12-4086-9b54-b1f41190a487",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "9f9195d5-957c-476d-a1dd-8d05be40c4b0",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "cf826658-12c0-4c17-9eba-47951201595d",
+			"key": "token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"id": "71b4fa7a-db81-4d17-bce2-cfdd6acf9b9c",
+			"key": "base_url",
+			"value": "http://localhost:8000",
+			"type": "string"
+		}
+	]
+}
