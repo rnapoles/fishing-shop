@@ -16,9 +16,9 @@ class CreateProductUsecase
 
         $validator = Validator::make($input, [
             'name' => 'required|unique:products',
-            'purchase_price' => 'required|decimal:0,2', 
-            'sale_price'  => 'required|decimal:0,2', 
-            'units_in_stock' => 'required|integer|min:0', 
+            'purchase_price' => 'required|decimal:0,2',
+            'sale_price' => 'required|decimal:0,2',
+            'units_in_stock' => 'required|integer|min:0',
             //'category_id' => 'required|integer|min:1',
         ]);
 

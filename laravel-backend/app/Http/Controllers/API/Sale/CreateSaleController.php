@@ -5,9 +5,9 @@ namespace App\Http\Controllers\API\Sale;
 use App\Exceptions\ValidationException;
 use App\Http\Controllers\API\BaseController;
 use App\Usecases\Sale\CreateSaleUsecase;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CreateSaleController extends BaseController
 {

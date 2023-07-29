@@ -5,8 +5,8 @@ namespace App\Http\Controllers\API\Product;
 use App\Exceptions\ValidationException;
 use App\Http\Controllers\API\BaseController;
 use App\Usecases\Product\CreateProductUsecase;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class CreateProductController extends BaseController
 {

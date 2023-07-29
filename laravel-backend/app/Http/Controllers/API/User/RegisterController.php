@@ -5,8 +5,8 @@ namespace App\Http\Controllers\API\User;
 use App\Exceptions\ValidationException;
 use App\Http\Controllers\API\BaseController;
 use App\Usecases\User\UserRegisterUsecase;
-use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
+use Illuminate\Http\Request;
 
 class RegisterController extends BaseController
 {

@@ -5,7 +5,6 @@ namespace App\Console\Commands;
 use App\Usecases\Sale\GenerateSaleReportUsecase;
 use Illuminate\Console\Command;
 
-
 class LocalTest extends Command
 {
     /**
@@ -27,6 +26,6 @@ class LocalTest extends Command
      */
     public function handle(GenerateSaleReportUsecase $usecase)
     {
-      echo $usecase->execute();
+        echo $usecase->execute();
     }
 }

@@ -6,7 +6,6 @@ namespace App\DTO\Product;
 
 class ProductItem
 {
-
     public string $id;
 
     public string $serial = '';
@@ -18,5 +17,4 @@ class ProductItem
     public int $unitsInStock = 0;
 
     public string $category = '-';
-
 }

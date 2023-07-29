@@ -3,7 +3,6 @@
 namespace App\Usecases\Sale;
 
 use App\Exceptions\ValidationException;
-use App\Models\User;
 use App\Models\Product;
 use App\Models\Sale;
 use Illuminate\Support\Facades\DB;
@@ -31,7 +30,7 @@ class CreateSaleUsecase
             DB::beginTransaction();
 
             $sale = Sale::create([
-              'client_id' => $input['client_id'],
+                'client_id' => $input['client_id'],
             ]);
 
             //map keys and quantity
@@ -39,9 +38,9 @@ class CreateSaleUsecase
             $productQuantity = [];
             $productKeys = [];
             foreach ($products as $product) {
-              $id = $product['id'];
-              $productKeys[] = $id;
-              $productQuantity[$id] = $product['quantity'];
+                $id = $product['id'];
+                $productKeys[] = $id;
+                $productQuantity[$id] = $product['quantity'];
             }
 
             //find selected products in database and reduce stock

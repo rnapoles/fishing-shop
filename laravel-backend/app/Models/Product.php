@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use App\Models\CategoryId;
 use App\Traits\HasOptimisticLocking;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
@@ -28,8 +27,8 @@ class Product extends Model
         $salePrice = $this->sale_price;
         $purchasePrice = $this->purchase_price;
 
-        if(!$purchasePrice){
-          return;
+        if (! $purchasePrice) {
+            return;
         }
 
         // calc profit margin percent
@@ -62,10 +61,10 @@ class Product extends Model
 
         $total = $this->units_in_stock;
 
-        if($total >= $quantity){
-          $this->units_in_stock -= $quantity;
+        if ($total >= $quantity) {
+            $this->units_in_stock -= $quantity;
         } else {
-          throw new \Exception("The product \"{$this->name}\" is out of stock");
+            throw new \Exception("The product \"{$this->name}\" is out of stock");
         }
 
         $this->available_in_stock = $this->units_in_stock > 0;
@@ -116,7 +115,7 @@ class Product extends Model
      * @var array<string>
      */
     protected $fillable = [
-        'name', 'purchase_price', 'sale_price', 'units_in_stock'
+        'name', 'purchase_price', 'sale_price', 'units_in_stock',
     ];
 
     public $timestamps = false;
