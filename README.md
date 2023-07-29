@@ -1,6 +1,6 @@
 # mary-shop
-A simple e-commerce project exercise implementation in diferent 
-programming languages and techs. Using a Clean Architecture principles.
+A simple e-commerce project exercise implemented in laravel. 
+Using some Clean Architecture principles.
 
 ### Data model
 ![Screenshot of ecommerce](images/app-data-model.png)
